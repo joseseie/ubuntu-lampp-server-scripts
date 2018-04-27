@@ -4,3 +4,10 @@ You can complete details here: http://www.php-developer.org/fresh-install-lampp-
 
 ### To update for php 7.2
 https://thishosting.rocks/install-php-on-ubuntu/
+
+### To give permition to the two directory
+sudo chmod 777 storage
+sudo chmod 777 bootstrap/cache 
+
+### To remove public from the url
+https://stackoverflow.com/questions/28364496/laravel-5-remove-public-from-url
