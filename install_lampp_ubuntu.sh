@@ -58,6 +58,7 @@ notrailing=${1%/};
 rpl "/var/www/html" $notrailing /etc/apache2/sites-available/000-default.conf;
 rpl "/var/www/html" $notrailing /etc/apache2/sites-available/default-ssl.conf;
 # Update user targeting default PHP 7.0/7.1/5.6 FPM
+rpl "www-data" $2 /etc/php/7.2/fpm/pool.d/www.conf;
 rpl "www-data" $2 /etc/php/7.1/fpm/pool.d/www.conf;
 rpl "www-data" $2 /etc/php/7.0/fpm/pool.d/www.conf;
 rpl "www-data" $2 /etc/php/5.6/fpm/pool.d/www.conf;
