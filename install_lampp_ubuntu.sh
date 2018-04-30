@@ -36,22 +36,22 @@ fi
 apt-get -y install mysql-server mysql-client;
 # Install Apache2
 apt-get -y install apache2;
-# Install PHP 7.1, PHP 7.0 and PHP 5.6 FastCGI process manager (FPM)
-apt-get install php7.1-fpm php7.0-fpm php5.6-fpm;
+# Install HP 7.2, PHP 7.1, PHP 7.0 and PHP 5.6 FastCGI process manager (FPM)
+apt-get install php7.2-fpm php7.1-fpm php7.0-fpm php5.6-fpm;
 # Enable proxy_fcgi module
 a2enmod proxy_fcgi setenvif;
-# Enable php7.0-fpm configuration as default (not PHP 5.6 and PHP 7.1 but this can switched easily if needed)
-a2enconf php7.0-fpm;
+# Enable php7.2-fpm configuration as default (not PHP 5.6 and PHP 7.1 but this can switched easily if needed)
+a2enconf php7.2-fpm;
 # Reload Apache2
 service apache2 reload;
-# Install PHP 7.1, PHP 7.0 and PHP 5.6 MySQL extension
-apt-get install php7.1-mysql php7.0-mysql php5.6-mysql;
-# Install important PHP developer libraries in their 7.1/7.0 and 5.6 versions
-apt-get install php7.1-curl php7.0-curl php5.6-curl php7.1-gd php7.0-gd php5.6-gd php7.1-intl php7.0-intl php5.6-intl php-pear php7.1-imap php7.0-imap php5.6-imap php7.1-mcrypt php7.0-mcrypt php5.6-mcrypt php7.1-ps php7.0-ps php5.6-ps php7.1-pspell php7.0-pspell php5.6-pspell php7.1-recode php7.0-recode php5.6-recode php7.1-snmp php7.0-snmp php5.6-snmp php7.1-sqlite php7.0-sqlite php5.6-sqlite php7.1-tidy php7.0-tidy php5.6-tidy php7.1-xmlrpc php7.0-xmlrpc php5.6-xmlrpc php7.1-xsl php7.0-xsl php5.6-xsl php7.1-zip php7.0-zip php5.6-zip php7.1-xml php7.0-xml php5.6-xml php7.1-dev php7.0-dev php5.6-dev; 
+# Install PHP 7.2, PHP 7.1, PHP 7.0 and PHP 5.6 MySQL extension
+apt-get install php7.2-mysql php7.1-mysql php7.0-mysql php5.6-mysql;
+# Install important PHP developer libraries in their  7.2, 7.1/7.0 and 5.6 versions
+apt-get install php7.2-curl php7.1-curl php7.0-curl php5.6-curl php7.2-gd php7.1-gd php7.0-gd php5.6-gd php7.2-intl php7.1-intl php7.0-intl php5.6-intl php-pear php7.2-imap php7.1-imap php7.0-imap php5.6-imap php7.2-mcrypt php7.1-mcrypt php7.0-mcrypt php5.6-mcrypt php7.2-ps php7.1-ps php7.0-ps php5.6-ps php7.2-pspell php7.1-pspell php7.0-pspell php5.6-pspell php7.2-recode php7.1-recode php7.0-recode php5.6-recode php7.2-snmp php7.1-snmp php7.0-snmp php5.6-snmp php7.2-sqlite php7.1-sqlite php7.0-sqlite php5.6-sqlite php7.2-tidy php7.1-tidy php7.0-tidy php5.6-tidy php7.2-xmlrpc php7.1-xmlrpc php7.0-xmlrpc php5.6-xmlrpc php7.2-xsl php7.1-xsl php7.0-xsl php5.6-xsl php7.2-zip php7.1-zip php7.0-zip php5.6-zip php7.2-xml php7.1-xml php7.0-xml php5.6-xml php7.2-dev php7.1-dev php7.0-dev php5.6-dev; 
 # Run an update
 apt-get update;
 # Install phpMyadmin and its dependencies
-apt-get install phpmyadmin php7.1-mbstring php7.0-mbstring php5.6-mbstring php-gettext;
+apt-get install phpmyadmin php7.2-mbstring php7.1-mbstring php7.0-mbstring php5.6-mbstring php-gettext;
 # Update working home Apache directories
 rpl "/var/www/" $1 /etc/apache2/apache2.conf;
 notrailing=${1%/};
@@ -69,10 +69,10 @@ a2enmod rewrite;
 # Enable SSL module
 a2enmod ssl;
 # Set PHP 7.0 as default CLI, php-config and phpize (when you switch versions these should be changed also)
-update-alternatives --set php /usr/bin/php7.0
-update-alternatives --set php-config /usr/bin/php-config7.0
-update-alternatives --set phpize /usr/bin/phpize7.0
-# Reload PHP 7.0 FPM
-service php7.0-fpm reload;
+update-alternatives --set php /usr/bin/php7.2
+update-alternatives --set php-config /usr/bin/php-config7.2
+update-alternatives --set phpize /usr/bin/phpize7.2
+# Reload PHP 7.2 FPM
+service php7.2-fpm reload;
 # Restart apache2
 service apache2 restart;
